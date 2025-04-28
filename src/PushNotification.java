@@ -1,18 +1,16 @@
-// Enum for Notification Priority
 enum NotificationPriority {
     HIGH, MEDIUM, LOW;
 }
 
-// Interface for Notification Service
 interface NotificationService {
     void sendNotification(String message, NotificationPriority priority);
 
     default void setDefaultPriority(String priority) {
-        // Optional: can be overridden in implementing classes
+
     }
 }
 
-// Email Notification Implementation
+
 class EmailNotification implements NotificationService {
     @Override
     public void sendNotification(String message, NotificationPriority priority) {
@@ -20,7 +18,7 @@ class EmailNotification implements NotificationService {
     }
 }
 
-// SMS Notification Implementation
+
 class SMSNotification implements NotificationService {
     @Override
     public void sendNotification(String message, NotificationPriority priority) {
@@ -28,7 +26,6 @@ class SMSNotification implements NotificationService {
     }
 }
 
-// Push Notification Implementation
 class PushNotification implements NotificationService {
     private String deviceId;
     private String defaultPriority = "MEDIUM";
